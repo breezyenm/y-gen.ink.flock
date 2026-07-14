@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { FlockEngine } from "@/lib/flock/engine";
-import { FAINT_INK, MODES, MODE_KEYS, type Density, type ModeKey, type Pace } from "@/lib/flock/modes";
+import { MODE_KEYS, SCENES, type Density, type ModeKey, type Pace } from "@/lib/flock/modes";
 
 interface FlockCanvasProps {
   startMode?: ModeKey;
@@ -43,9 +43,9 @@ export function FlockCanvas({
     };
   }, [startMode, density, pace]);
 
-  const cfg = MODES[mode];
+  const cfg = SCENES[mode].cfg;
   const uiInk = cfg.ink;
-  const faint = FAINT_INK[mode];
+  const faint = cfg.faint;
 
   return (
     <div
@@ -104,7 +104,7 @@ export function FlockCanvas({
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 6, pointerEvents: "auto" }}>
           {MODE_KEYS.map((key) => {
-            const c = MODES[key];
+            const c = SCENES[key].cfg;
             const active = key === mode;
             return (
               <button
