@@ -1,0 +1,54 @@
+/* ============================================================
+   Yūgen — Effects: radii, borders, shadows, blur, motion
+   The brand is architectural and calm: restrained radii, soft
+   low-contrast shadows (mist, not drop), the circle reserved for
+   the sun/lantern motif, and slow, settling motion — never bouncy.
+   ============================================================ */
+:root {
+  /* --- Radii — sharp & architectural, with one full circle --- */
+  --radius-none: 0;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;   /* the rising-sun / lantern disc */
+
+  /* --- Borders --- */
+  --border-width: 1px;
+  --border-width-thick: 1.5px;
+
+  /* --- Shadows — soft atmospheric "mist", layered & low-contrast --- */
+  --shadow-xs: 0 1px 2px rgba(13, 28, 27, 0.06);
+  --shadow-sm: 0 1px 2px rgba(13, 28, 27, 0.05), 0 2px 6px rgba(13, 28, 27, 0.06);
+  --shadow-md: 0 2px 4px rgba(13, 28, 27, 0.05), 0 8px 20px rgba(13, 28, 27, 0.08);
+  --shadow-lg: 0 4px 10px rgba(13, 28, 27, 0.06), 0 18px 44px rgba(13, 28, 27, 0.12);
+  --shadow-xl: 0 8px 24px rgba(13, 28, 27, 0.10), 0 36px 80px rgba(13, 28, 27, 0.18);
+
+  /* Warm glow — for lantern / amber emphasis only */
+  --glow-akari: 0 0 0 1px rgba(217, 130, 42, 0.30), 0 8px 32px rgba(217, 130, 42, 0.28);
+  --glow-shu:   0 0 0 1px rgba(217, 58, 43, 0.32), 0 6px 26px rgba(217, 58, 43, 0.26);
+
+  /* Inset hairline — for sunken inputs */
+  --shadow-inset: inset 0 1px 2px rgba(13, 28, 27, 0.06);
+
+  /* --- Blur (mist / frosted overlays) --- */
+  --blur-sm: 6px;
+  --blur-md: 14px;
+  --blur-lg: 28px;
+
+  /* --- Focus ring --- */
+  --ring: 0 0 0 3px color-mix(in srgb, var(--focus-ring) 38%, transparent);
+  --ring-offset: 0 0 0 2px var(--surface-page), 0 0 0 5px color-mix(in srgb, var(--focus-ring) 45%, transparent);
+
+  /* --- Motion — slow, settling, never bouncy --- */
+  --ease-calm: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+
+  --dur-fast: 140ms; /* @kind other */
+  --dur-base: 240ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+  --dur-drift: 700ms; /* @kind other */
+}

@@ -1,0 +1,142 @@
+/* ============================================================
+   Yūgen — Color
+   A palette drawn from atmospheric Japanese scenes: deep jade-teal
+   fields (nando), vermilion accents (shu), warm lantern light
+   (akari), washi-paper creams, and sumi-ink neutrals.
+
+   Traditional color names (iro 色) anchor each family.
+   ============================================================ */
+:root {
+  /* --- Nando 納戸 · deep jade-teal · the signature environment --- */
+  --nando-50:  #EAF3F1;
+  --nando-100: #C9E0DC;
+  --nando-200: #A1C8C3;
+  --nando-300: #6FA8A2;
+  --nando-400: #438580;
+  --nando-500: #2C625E;  /* base */
+  --nando-600: #234E4B;
+  --nando-700: #1B3D3A;
+  --nando-800: #142C2A;
+  --nando-900: #0D1C1B;
+  --nando-950: #081312;
+
+  /* --- Shu 朱 · vermilion · the single, decisive accent --- */
+  --shu-50:  #FCEBE7;
+  --shu-100: #F8CCC2;
+  --shu-200: #F1A697;
+  --shu-300: #E97C69;
+  --shu-400: #E25542;
+  --shu-500: #D93A2B;  /* base accent */
+  --shu-600: #BC2E20;
+  --shu-700: #97251A;
+  --shu-800: #6E1B13;
+  --shu-900: #45110C;
+
+  /* --- Akari 灯 · amber lantern glow · warm secondary --- */
+  --akari-50:  #FDF4E6;
+  --akari-100: #FAE4BF;
+  --akari-200: #F4CC8A;
+  --akari-300: #EFB45A;
+  --akari-400: #E89B37;
+  --akari-500: #D9822A;  /* base */
+  --akari-600: #B5661F;
+  --akari-700: #8C4D19;
+
+  /* --- Washi 和紙 · paper / cream warm-neutral light surfaces --- */
+  --washi-50:  #FBF8F1;
+  --washi-100: #F5EFE2;
+  --washi-200: #ECE2CC;
+  --washi-300: #E0D2B4;
+  --washi-400: #CFBE99;
+
+  /* --- Sumi 墨 · ink · warm charcoal neutral scale --- */
+  --sumi-50:  #F4F6F5;
+  --sumi-100: #E6EAE9;
+  --sumi-200: #D0D6D5;
+  --sumi-300: #B2BAB9;
+  --sumi-400: #8C9695;
+  --sumi-500: #6A7473;
+  --sumi-600: #4D5756;
+  --sumi-700: #353E3D;
+  --sumi-800: #232A29;
+  --sumi-900: #161B1A;
+  --sumi-950: #0C100F;
+
+  /* --- Functional --- */
+  --positive: #4F7A52;   /* moss / matcha green */
+  --caution:  #D9822A;   /* akari amber */
+  --critical: #BC2E20;   /* shu deep */
+  --info:     #438580;   /* nando */
+
+  /* ==========================================================
+     Semantic aliases — LIGHT (washi paper) is the default theme.
+     Reference THESE in components, not the raw scales above.
+     ========================================================== */
+  --surface-page:    var(--washi-50);
+  --surface-sunken:  var(--washi-100);
+  --surface-card:    #FFFFFF;
+  --surface-raised:  #FFFFFF;
+  --surface-inverse: var(--nando-800);
+  --surface-overlay: rgba(13, 28, 27, 0.46);
+
+  --text-strong:  var(--sumi-900);
+  --text-body:    var(--sumi-700);
+  --text-muted:   var(--sumi-500);
+  --text-faint:   var(--sumi-400);
+  --text-ondark:  var(--washi-50);
+  --text-onaccent:#FFFFFF;
+
+  --accent:        var(--shu-500);
+  --accent-hover:  var(--shu-600);
+  --accent-press:  var(--shu-700);
+  --accent-soft:   var(--shu-50);
+  --accent-onsoft: var(--shu-700);
+
+  --feature:        var(--nando-500);  /* hero / feature surfaces */
+  --feature-deep:   var(--nando-800);
+  --warm:           var(--akari-500);
+
+  --border-hair:   rgba(22, 27, 26, 0.10);
+  --border-soft:   rgba(22, 27, 26, 0.14);
+  --border-strong: rgba(22, 27, 26, 0.26);
+  --border-onaccent: rgba(255, 255, 255, 0.22);
+
+  --focus-ring: var(--shu-400);
+}
+
+/* ==========================================================
+   NIGHT theme — deep teal dusk. The brand's atmospheric mode.
+   Apply [data-theme="night"] to any subtree (or <html>).
+   ========================================================== */
+[data-theme="night"] {
+  --surface-page:    var(--nando-900);
+  --surface-sunken:  var(--nando-950);
+  --surface-card:    var(--nando-800);
+  --surface-raised:  var(--nando-700);
+  --surface-inverse: var(--washi-50);
+  --surface-overlay: rgba(8, 19, 18, 0.62);
+
+  --text-strong:  var(--washi-50);
+  --text-body:    var(--nando-100);
+  --text-muted:   #8FB0AC;
+  --text-faint:   #5E807C;
+  --text-ondark:  var(--washi-50);
+  --text-onaccent:#FFFFFF;
+
+  --accent:        var(--shu-400);
+  --accent-hover:  var(--shu-300);
+  --accent-press:  var(--shu-500);
+  --accent-soft:   rgba(217, 58, 43, 0.16);
+  --accent-onsoft: var(--shu-200);
+
+  --feature:        var(--nando-500);
+  --feature-deep:   var(--nando-950);
+  --warm:           var(--akari-400);
+
+  --border-hair:   rgba(201, 224, 220, 0.10);
+  --border-soft:   rgba(201, 224, 220, 0.16);
+  --border-strong: rgba(201, 224, 220, 0.30);
+  --border-onaccent: rgba(255, 255, 255, 0.24);
+
+  --focus-ring: var(--shu-300);
+}

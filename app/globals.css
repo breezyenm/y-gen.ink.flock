@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* Yūgen 幽玄 design system tokens — as shipped in the handoff bundle */
+@import "./styles/colors.css";
+@import "./styles/typography.css";
+@import "./styles/spacing.css";
+@import "./styles/effects.css";
+@import "./styles/base.css";
+
+/* ---- Ink Flock page shell (from the prototype's inline <style>) ---- */
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #F5EFE2;
+}
+
+a {
+  color: #D93A2B;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+@keyframes ygFadeA {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ygFadeB {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Mode-switcher buttons: rest colour is per-button (--btn-ink),
+   hover lifts to the scene's full ink (--ui-ink). */
+.yg-mode-btn {
+  color: var(--btn-ink);
+  transition: color 0.35s;
+}
+.yg-mode-btn:hover {
+  color: var(--ui-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+  }
+}

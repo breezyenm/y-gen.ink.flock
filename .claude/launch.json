@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ink-flock",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "/Users/ladee/Projects/bleeq/yũgen/yũgen.ink.flock",
+      "port": 3000
+    }
+  ]
+}

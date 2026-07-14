@@ -1,0 +1,43 @@
+/* ============================================================
+   Yūgen — Spacing & Layout
+   A 4px base rhythm. Names map to the base unit (space-4 = 4px).
+   Ma (間) — negative space — is a brand value: prefer the larger
+   step when in doubt.
+   ============================================================ */
+:root {
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-128: 128px;
+  --space-160: 160px;
+
+  /* --- Semantic spacing --- */
+  --gap-inline: var(--space-8);    /* between inline siblings (icon+label) */
+  --gap-control: var(--space-12);  /* between form controls */
+  --gap-card: var(--space-24);     /* card internal padding rhythm */
+  --gap-section: var(--space-96);  /* between page sections (ma) */
+
+  --pad-control-y: var(--space-12);
+  --pad-control-x: var(--space-20);
+  --pad-card: var(--space-24);
+
+  /* --- Containers --- */
+  --container-prose: 68ch;     /* readable measure */
+  --container-narrow: 760px;
+  --container: 1080px;
+  --container-wide: 1280px;
+  --container-full: 1440px;
+}
