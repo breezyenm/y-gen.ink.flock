@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ink Flock — Yūgen 幽玄
 
-## Getting Started
+A full-screen interactive canvas: a boids flock — birds, koi, or antelope —
+follows the cursor and scatters when you click, across three atmospheric scenes.
+Built with Next.js 16 (App Router), React 19, and TypeScript, styled with the
+Yūgen 幽玄 design system.
 
-First, run the development server:
+> **Move — they follow. Click — they scatter.**
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Other commands: `npm run build`, `npm run start`, `npm run lint`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Documentation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This README is a signpost. The docs are organised into four kinds — start with the
+one that matches what you need.
 
-## Learn More
+### Tutorial — learning by doing
+- [Getting started with Ink Flock](docs/tutorials/getting-started.md) — clone, run,
+  and make your first visible change.
 
-To learn more about Next.js, take a look at the following resources:
+### How-to guides — solving a specific task
+- [Add a new scene](docs/how-to/add-a-scene.md)
+- [Record a showreel video](docs/how-to/record-a-showreel.md)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Reference — the machinery, precisely
+- [Scene contract](docs/reference/scene-contract.md) — `Agent`, `SceneConfig`,
+  `Scene`, and the seam types.
+- [Scene registry & mounting](docs/reference/scene-registry.md) — `SCENES`,
+  `MODE_KEYS`, density/pace multipliers, `FlockCanvas` props, `FlockEngine` methods.
+- [Design tokens](docs/reference/design-tokens.md) — the Yūgen colour, type,
+  spacing, and effect tokens.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Explanation — understanding why
+- [Understanding the Ink Flock architecture](docs/explanation/architecture.md) — the
+  engine/Scene seam, the frame flow, the veil transition, and the design rationale.
 
-## Deploy on Vercel
+## Project layout
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/
+  page.tsx            server component — mounts the experience
+  layout.tsx          fonts + metadata
+  styles/             Yūgen design-system tokens (colours, type, spacing, effects)
+components/
+  flock-canvas.tsx    client component — canvas + chrome (header, mode switch, captions)
+lib/flock/
+  engine.ts           scene-agnostic boids core
+  types.ts            the Scene seam contract
+  modes.ts            scene registry + global density/pace multipliers
+  scenes/             one adapter per scene: birds, koi, safari
+  dev-recorder.ts     dev-only video capture harness
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Conventions
+
+- Simulation behaviour is a faithful port of the original prototype. Change physics
+  constants only in the owning scene's `cfg`, and only deliberately.
+- Adding a scene touches two files — a new adapter in `lib/flock/scenes/` and a line
+  in `modes.ts`. See the [how-to](docs/how-to/add-a-scene.md).
+- Styling uses the Yūgen design-system CSS custom properties in `app/styles/`; don't
+  hardcode a colour that exists as a token.
+- Copy voice is spare, sentence case, no emoji, no exclamation marks.
+
+## Docs status
+
+There is no `CONTEXT.md` or `docs/adr/` tree yet (a Phase-1 gap in the BleeQ
+pipeline). The architectural rationale that would live there is currently captured
+in [the architecture explanation](docs/explanation/architecture.md) and in the
+inline comments across `lib/flock/`.
+</content>

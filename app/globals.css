@@ -49,3 +49,98 @@ a:hover {
     animation: none !important;
   }
 }
+
+/* ---- Responsive chrome (mobile & tablet retrofit) ---------------------- */
+/* The canvas owns the whole gesture surface — stop the browser hijacking a
+   drag for pan/zoom. Hide the OS cursor only where a real cursor exists. */
+.yg-canvas {
+  touch-action: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .yg-canvas {
+    cursor: none;
+  }
+}
+
+.yg-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: 26px 36px;
+  pointer-events: none;
+}
+.yg-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  pointer-events: auto;
+}
+.yg-caption-ja {
+  font-size: 30px;
+}
+
+/* Hint: subtle on desktop; prominent on touch (the drag gesture is invisible
+   without it); fades after the first touch — but STAYS under reduced-motion,
+   where it's the only signal that the still canvas is interactive. */
+.yg-hint {
+  opacity: 0.5;
+  transition: opacity 0.8s ease;
+}
+.yg-hint-touch {
+  display: none;
+}
+@media (hover: none) {
+  .yg-hint {
+    opacity: 0.82;
+  }
+  .yg-hint-hover {
+    display: none;
+  }
+  .yg-hint-touch {
+    display: inline;
+  }
+}
+.yg-hint--dismissed {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .yg-hint--dismissed {
+    opacity: 0.82;
+  }
+}
+
+/* Phones: stack the header into two rows so the switcher never crowds the
+   brand, and keep the bottom edge clear — that's the play field. */
+@media (max-width: 640px) {
+  .yg-topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+  .yg-switcher {
+    justify-content: space-between;
+    gap: var(--space-4);
+    width: 100%;
+  }
+  .yg-mode-btn {
+    padding: 10px 6px;
+    min-height: 44px;
+  }
+  .yg-caption-ja {
+    font-size: clamp(20px, 6.5vw, 30px);
+  }
+  /* Keep the caption at the bottom-left and lift the hint clear above it —
+     on a phone both were colliding on the same bottom edge. */
+  .yg-caption {
+    left: 18px !important;
+    bottom: 22px !important;
+  }
+  .yg-hint {
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 104px !important;
+    text-align: center;
+  }
+}
